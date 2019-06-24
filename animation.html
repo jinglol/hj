@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- jquery -->
+    <script src="./lib/jQuery/jquery-1.11.2.min.js"></script>
+    <!-- bootstrap -->
+    <script src="./lib/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.min.css.map">
+    <!-- video -->
+    <script src="./lib/video.js"></script>
+    <link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+    <style type="text/css">
+        .form-control-xxx {
+            width: 200px;
+            display: inline;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+        <input id="survey" value="video" style='display:none'>
+    <div class="row">
+
+        <div class="col-md-6 col-md-offset-3">
+            
+            <div class="panel panel-info">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">Animation</h3>
+                  </div>
+                  <div class="panel-body">
+                        <video id="video2" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="800px" height="500px"
+                        poster="http://static.qiakr.com/app/full_res.jpg">
+                        <source id="sourceBox" src="animation-test.mp4" type='video/mp4'>
+                        <p class="vjs-no-js">不支持播放</p>
+                    </video>
+                  </div>
+            </div>
+            
+
+
+        </div>
+
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Questionnaire</h3>
+                </div>
+                <div class="panel-body">
+                    <button id="start" type="button" class="btn btn-primary">Start</button>
+                    <button id="submit" type="button" class="btn btn-success">Submit</button>
+                    <span> The answer time of each question：60s</span>
+                    <div id="progress_div" class="progress" style="width:600px;display:none">
+
+                        <div id="progress" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 0%;">
+                            <span class="sr-only">90% 完成（成功）</span>
+                        </div>
+                    </div>
+                    <div id="panel_group">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div id ="panel" class="panel panel-primary" style="display:none"> -->
+            <!-- <div class="panel-heading">
+                    <h3 class="panel-title">QuestionXXX</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="question">
+                        <span>Question：</span>123123123213123</div>
+                    <div id="answer" style="display:none">
+                        <span>Options：</span>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default ">
+                                <input type="radio" name="options"> Option 1
+                            </label>
+                            <label class="btn btn-default ">
+                                <input type="radio" name="options"> Option 2
+                            </label>
+                            <label class="btn btn-default ">
+                                <input type="radio" name="options"> Option 3
+                            </label>
+                            <label class="btn btn-default ">
+                                <input type="radio" name="options"> Option 3
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-success">Submit</button>
+                </div> -->
+
+
+            <!-- </div> -->
+
+        </div>
+        <textarea id="jsonInputField" type="text" style="display: none;">
+            {
+    "title": "动态协作关系可视化调查问卷",
+    "children": [
+        {
+            "class": "when",
+            "children": [
+                {
+                    "id": 1,
+                    "item": 1,
+                    "question": "When does entity 4 disappear?",
+                    "answer": "t20",
+                    "options": [
+                        "t12",
+                        "t20",
+                        "t36",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                
+                {
+                    "id": 2,
+                    "item": 2,
+                    "question": "How long does activity 10 last?",
+                    "answer": "15",
+                    "options": [
+                        "15",
+                        "12",
+                        "18",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "item": 3,
+                    "question": "Which of activities 11 and 12 started first?",
+                    "answer": "11",
+                    "options": [
+                        "11",
+                        "12",
+                        "The same time",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                }
+            ]
+        },
+        {
+            "class": "what",
+            "children": [
+                {
+                    "id": 4,
+                    "item": 1,
+                    "question": "Is entity 7 related to 9 under t40?",
+                    "answer": "No",
+                    "options": [
+                        "No",
+                        "Yes",
+                        "",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 5,
+                    "item": 2,
+                    "question": "What happens to entity 3 during t34 to t35?",
+                    "answer": "More entities interacting with it",
+                    "options": [
+                        "More entities interacting with it",
+                        "Less entities interacting with it",
+                        "No changes",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 6,
+                    "item": 3,
+                    "question": "Does the relationship between entity 5 and entity 9 change during the entire process?",
+                    "answer": "No",
+                    "options": [
+                        "No",
+                        "Yes",
+                        "",
+                      "None of the above",
+                        "Too difficult"
+                    ]
+                }
+            ]
+        },
+        {
+            "class": "where",
+            "children": [
+                {
+                    "id": 7,
+                    "item": 1,
+                    "question": "Which activity does entity 12 participate in at t58?",
+                    "answer": "17",
+                    "options": [
+                        "15",
+                        "16",
+                        "17",
+                       "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 8,
+                    "item": 2,
+                    "question": "How many activities does entity 6 participate in?",
+                    "answer": "10",
+                    "options": [
+                        "9",
+                        "10",
+                        "11",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 9,
+                    "item": 3,
+                    "question": "What are the activities in parallel with activity 18 in time?",
+                    "answer": "Activity 19 and 20",
+                    "options": [
+                        "Activity 16 and 17",
+                        "Activity 17 and 19",
+                        "Activity 19 and 20",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 10,
+                    "item": 4,
+                    "question": "Are the number of entities involved in activity 10 the same as the number involved in activity 13?",
+                    "answer": "Yes",
+                    "options": [
+                        "No",
+                        "Yes",
+                        "",
+                       "None of the above",
+                        "Too difficult"
+                    ]
+                }
+            ]
+        },
+        {
+            "class": "Comination",
+            "children": [
+                {
+                    "id": 11,
+                    "item": 1,
+                    "question": "At the beginning of activity 19, how many entities are related to entity 10?",
+                    "answer": "7",
+                    "options": [
+                        "7",
+                        "8",
+                        "9",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                },
+                {
+                    "id": 12,
+                    "item": 2,
+                    "question": "When entity 4 disappears, how many activities just have begun?",
+                    "answer": "3",
+                    "options": [
+                        "1",
+                        "2",
+                        "3",
+                        "None of the above",
+                        "Too difficult"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+        </textarea>
+    </div>
+    <script src="./src/zhb.js"></script>
+    <script src="./src/video_control.js"></script>
+    <!-- <script src="./src/write_answer.js"></script> -->
+</body>
+
+</html>

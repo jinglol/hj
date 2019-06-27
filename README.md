@@ -1,2 +1,10 @@
-# hj
-Datasets+tasks+software of our paper "Evaluation on Visualization Methods of Dynamic Collaborative Relationships for Project Management"
+System view of 5 technologies
+---animation.html    
+---matrix.html 
+---nodelink.html
+---smallmulp.html
+---storyline.html
+
+Tasks for two sudies
+---Tasks.pdf
+
